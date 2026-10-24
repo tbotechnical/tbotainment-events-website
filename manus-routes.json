@@ -1,0 +1,9 @@
+{
+  "routes": [
+    { "path": "/", "title": "Home" },
+    { "path": "/services", "title": "Services" },
+    { "path": "/our-work", "title": "Our Work" },
+    { "path": "/about", "title": "About Us" },
+    { "path": "/request-a-quote", "title": "Request a Quote" }
+  ]
+}

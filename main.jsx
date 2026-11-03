@@ -2,11 +2,10 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles.css'
 
-const LIVE_ORIGIN = 'https://tbotainmentevents.manus.space'
 const media = {
-  hero: `${LIVE_ORIGIN}/manus-storage/TbotainmentEventHighlights3_faststart_1080p_23957725.mp4`,
-  heroMobile: `${LIVE_ORIGIN}/manus-storage/TbotainmentEventHighlights4_mobile_1080p_50b2001a.mp4`,
-  heroPortrait: `${LIVE_ORIGIN}/manus-storage/AboutCarouselPoolEvent_b0e0952f.png`,
+  hero: '/manus-storage/1002317611_6d3f2fe3.mp4',
+  heroMobile: '/manus-storage/TbotainmentEvents_20261102_112843_0000_186e9b81.mp4',
+  heroPortrait: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001569004_68645175.jpg',
   stage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001569004_68645175.jpg',
   corporate: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001287853_compressed_77da4556.jpg',
   activation: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001287837_compressed_1050e450.jpg',
@@ -21,8 +20,8 @@ const media = {
   live2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001359642_d6cb4e58.jpg',
   live3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/dondazul_stage_b4804c73.jpg',
   branded: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/gallery_bonaqua_full_bdea1bc3.jpg',
-  about: `${LIVE_ORIGIN}/manus-storage/AboutCarouselProductionShoot_6e865be6.png`,
-  management: `${LIVE_ORIGIN}/manus-storage/EventManagementCrowdReplacementWide_3c168231.png`,
+  about: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001393667_64e56e77.jpg',
+  management: '/manus-storage/1793729224437_b5ab5eb8.png',
   safety: 'https://lh3.googleusercontent.com/p/AF1QipP0Gi1c-MYde1Dz7Ky1eW4eUOBGJmV28nLg2uun=s1360-w1360-h1020-rw',
   activationBlock: 'https://lh3.googleusercontent.com/p/AF1QipPWXvAJjiFS-Mk9wEcewwqRIosKRKDdg9Stlnju=s1360-w1360-h1020-rw',
   staffing: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/staffing_absolut_full_3621fabd.jpg',
@@ -34,16 +33,16 @@ const media = {
   community: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001287825_a2c7e6a8.jpg',
   school: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001287631_compressed_0e15cb86.jpg',
   liveDj: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001287396_9ac86bef.jpg',
-  festival: `${LIVE_ORIGIN}/manus-storage/OutdoorFestivalStageUnderBlueSkies_e0deca37.png`,
-  neon: `${LIVE_ORIGIN}/manus-storage/NeonMasqueradeStageatNight_00f84945.png`,
-  science: `${LIVE_ORIGIN}/manus-storage/Eventstagepreparationforscienceconference_f3f1131b.png`,
-  funeral: `${LIVE_ORIGIN}/manus-storage/Formalceremonyatfuneralparlourevent_b53d4288.png`,
-  twilight: `${LIVE_ORIGIN}/manus-storage/TwilightDJConcertinthePark_cbd246b7.png`,
-  whereStage1: `${LIVE_ORIGIN}/manus-storage/WhereDeliveredStageProduction_1002219884_071ed94d.png`,
-  whereStage2: `${LIVE_ORIGIN}/manus-storage/WhereDeliveredStageProduction_1002219206_11f5b846.png`,
-  whereLive1: `${LIVE_ORIGIN}/manus-storage/WhereDeliveredLiveEvents_1002219174_cd847058.png`,
-  whereLive2: `${LIVE_ORIGIN}/manus-storage/WhereDeliveredLiveEvents_1002220883_dabcf498.png`,
-  lounge: `${LIVE_ORIGIN}/manus-storage/Modernloungewithcityskylineview_2edbb398.png`,
+  festival: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001571383_a6db0636.jpg',
+  neon: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/dondazul_stage_b4804c73.jpg',
+  science: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001287631_compressed_0e15cb86.jpg',
+  funeral: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001287848_compressed_6ddabc5b.jpg',
+  twilight: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001359642_d6cb4e58.jpg',
+  whereStage1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001287852_compressed_8b4f24a5.jpg',
+  whereStage2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001287846_58815640.jpg',
+  whereLive1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001287396_9ac86bef.jpg',
+  whereLive2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/gallery_bonaqua_full_bdea1bc3.jpg',
+  lounge: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1765716372562_08e1b8e1.jpg',
   productionVenue: 'https://lh3.googleusercontent.com/p/AF1QipM3B6-8WvfPEFS2w2DIgQ3SmIDRa5o-rUTN5TeU=s1374-w720-h1374-rw',
   venueDj: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001287850_compressed_64a48248.jpg',
   indoorBrand: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001287868_compressed_4178f76a.jpg',
@@ -51,14 +50,13 @@ const media = {
   largeCrowd: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001287836_compressed_6dfc6f5e.jpg',
 }
 const aboutHeroSlides = [
-  { src: `${LIVE_ORIGIN}/manus-storage/AboutCarouselProductionShoot_6e865be6.png`, alt: 'Event production crew and speakers in an industrial venue' },
-  { src: `${LIVE_ORIGIN}/manus-storage/AboutCarouselOutdoorSetup_7ecf31be.png`, alt: 'Outdoor event technical setup with branded equipment' },
-  { src: `${LIVE_ORIGIN}/manus-storage/AboutCarouselMicrophones_1d0be7a0.png`, alt: 'Wireless microphones prepared for an event' },
-  { src: `${LIVE_ORIGIN}/manus-storage/AboutCarouselPoolEvent_b0e0952f.png`, alt: 'Outdoor poolside event with DJ and technical production setup' },
-  { src: `${LIVE_ORIGIN}/manus-storage/AboutCarouselDondazulSpeakers_b4a5fe1e.png`, alt: 'Outdoor event speaker array suspended from a truss structure' },
-  { src: `${LIVE_ORIGIN}/manus-storage/AboutCarouselIndoorSpeaker_6f11fc19.png`, alt: 'Indoor event speaker and uplighting setup at a decorated venue' },
+  { src: media.productionVenue, alt: 'Portrait event production environment with technical setup' },
+  { src: media.safety, alt: 'Professional event safety and production environment' },
+  { src: media.activationBlock, alt: 'Branded event activation environment' },
+  { src: media.content, alt: 'Event content production environment' },
+  { src: media.staffing, alt: 'Event crew and staffing production image' },
+  { src: media.stage, alt: 'Stage production with technical equipment and event lighting' },
 ]
-
 const services = [
   { num: '01', title: 'Technical Production', short: 'The signal, the atmosphere, the detail.', body: 'End-to-end audio-visual infrastructure, owned equipment and a technical crew that understands what is at stake when the room goes live.', items: ['Audio visual rentals', 'Sound technicians & setup crew', 'Lighting & staging', 'Live recording', 'Acoustics engineering'], image: media.stage3 },
   { num: '02', title: 'Event Management', short: 'One partner from brief to breakdown.', body: 'From intimate corporate events to large-scale festivals, we coordinate the moving parts with a clear line of sight from planning through production.', items: ['Corporate & conference events', 'Live entertainment', 'End-to-end event support', 'Large-scale events & festivals', 'Management & logistics'], image: media.management },
@@ -79,11 +77,13 @@ const workItems = [
   { category: 'Brand Activations', title: 'Indoor brand activation', image: media.indoorBrand, meta: 'Indoor Venues' },
   { category: 'Stage & Technical', title: 'Dondazul professional stage', image: media.live3, meta: 'Technical Excellence' },
   { category: 'Stage & Technical', title: 'Production venue in action', image: media.productionVenue, meta: 'Production Quality' },
-  { category: 'Stage & Technical', title: 'Production crew and speakers', image: media.about, meta: 'Technical Production' },
   { category: 'Stage & Technical', title: 'Outdoor stage setup with drums', image: media.stage4, meta: 'Stage Setup' },
   { category: 'Stage & Technical', title: 'Crew rigging truss at height', image: media.live2, meta: 'Rigging & Truss' },
   { category: 'Stage & Technical', title: 'Kavo Beach Bar DJ setup', image: media.venueDj, meta: 'Venue Production' },
   { category: 'Stage & Technical', title: 'Large projection screen', image: media.projection, meta: 'Projection & AV' },
+  { category: 'Stage & Technical', title: 'Outdoor stage and sound system', image: '/manus-storage/1002219884_3078a27c.png', meta: 'Stage Production' },
+  { category: 'Stage & Technical', title: 'Outdoor sound system and stage', image: '/manus-storage/1002220883_28c251dc.png', meta: 'Stage Production' },
+  { category: 'Stage & Technical', title: 'Illuminated DJ stage production', image: '/manus-storage/1002219174_695321ec.png', meta: 'Live Stage Production' },
   { category: 'Corporate', title: 'Corporate conference screens', image: media.conferenceScreens, meta: 'Corporate Conferences' },
   { category: 'Corporate', title: 'Panel event with branded backdrop', image: media.panel, meta: 'Panel Events' },
   { category: 'Corporate', title: 'Professional security team', image: media.security, meta: 'Security Services' },
@@ -91,18 +91,9 @@ const workItems = [
   { category: 'Corporate', title: 'School ceremony production', image: media.school, meta: 'School Events' },
   { category: 'Live Entertainment', title: 'Live DJ performance', image: media.liveDj, meta: 'Live Entertainment' },
   { category: 'Brand Activations', title: 'Red Bull and Bonaqua beach activation', image: media.branded, meta: 'Sports & Beach Activations' },
-  { category: 'Stage & Technical', title: 'Outdoor festival stage', image: media.festival, meta: 'Stage Production' },
-  { category: 'Stage & Technical', title: 'Neon masquerade stage', image: media.neon, meta: 'Stage Production' },
-  { category: 'Corporate', title: 'Science conference stage', image: media.science, meta: 'Corporate Events' },
-  { category: 'Corporate', title: 'Formal ceremony production', image: media.funeral, meta: 'Corporate Events' },
-  { category: 'Stage & Technical', title: 'Twilight DJ concert', image: media.twilight, meta: 'Stage Production' },
-  { category: 'Stage & Technical', title: 'Outdoor stage with truss and speakers', image: media.whereStage1, meta: 'Stage Production' },
-  { category: 'Stage & Technical', title: 'Live event stage and truss lighting', image: media.whereStage2, meta: 'Stage Production' },
-  { category: 'Live Entertainment', title: 'Live DJ stage with colour', image: media.whereLive1, meta: 'Live Entertainment' },
-  { category: 'Live Entertainment', title: 'Outdoor live event sound system', image: media.whereLive2, meta: 'Live Entertainment' },
-  { category: 'Brand Activations', title: 'Modern event lounge', image: media.lounge, meta: 'Brand Activations' },
 ]
 const categories = ['All work', 'Corporate', 'Live Entertainment', 'Brand Activations', 'Stage & Technical']
+const uniqueWorkItems = workItems.filter((item, index, items) => items.findIndex(candidate => candidate.image === item.image) === index)
 const brands = ['Vodacom', 'Red Bull', 'Coca-Cola', 'Bonaqua', 'Energade Boost', 'Absolut Vodka', 'Hennessy', 'Santam', 'Hollywood Bets', 'Komatsu', 'Mzansi Neosoul', 'Ultramog Sessions']
 
 function pathFor(path) {
@@ -183,7 +174,6 @@ function HeroSlideshow() {
   return <div className="page-intro-image hero-slideshow" aria-label="Tbotainment Events production photographs">
     {aboutHeroSlides.map((slide, index) => <img key={slide.src} className={index === active ? 'active' : ''} src={slide.src} alt={slide.alt} loading="eager" decoding="async" fetchPriority="high" />)}
     <div className="hero-slideshow-dots" aria-label="Hero photograph slides">{aboutHeroSlides.map((slide, index) => <button key={slide.src} className={index === active ? 'active' : ''} onClick={() => setActive(index)} aria-label={`Show hero photograph ${index + 1}`} />)}</div>
-    <span className="image-index">TB / {String(active + 1).padStart(2, '0')}</span>
   </div>
 }
 function PageIntro({ eyebrow, title, body, children }) {
@@ -280,7 +270,7 @@ function ServicePreview() {
 function WorkStrip({ limit = 5 }) {
   return <section className="section work-preview">
     <div className="page-width"><div className="split-heading"><SectionHeading eyebrow="Events & media" title="Work that holds<br /><em>the room.</em>" body="A selection of real Tbotainment Events imagery from stages, conferences, activations and live production." /><ButtonLink to="/our-work" variant="outline">See our work</ButtonLink></div>
-      <div className="work-mosaic">{workItems.slice(0, limit).map((item, index) => <Link to="/our-work" className={`work-tile work-tile-${index + 1}`} key={item.title}><img src={item.image} alt={item.title} /><div className="work-tile-overlay"><span>{item.meta}</span><strong>{item.title}</strong><Arrow /></div></Link>)}</div>
+      <div className="work-mosaic">{uniqueWorkItems.slice(0, limit).map((item, index) => <Link to="/our-work" className={`work-tile work-tile-${index + 1}`} key={item.title}><img src={item.image} alt={item.title} /></Link>)}</div>
     </div>
   </section>
 }
@@ -329,7 +319,7 @@ function Testimonial() {
 }
 
 function BrandRail() {
-  return <section className="brand-rail"><div className="page-width"><Eyebrow>Trusted by</Eyebrow><div className="brand-marquee" aria-label="Trusted brands"><div className="brand-track">{[...brands, ...brands].map((brand, index) => <span key={`${brand}-${index}`}>{brand}</span>)}</div></div><small>Brand names are carried forward from the existing site and should be verified before final publication.</small></div></section>
+  return <section className="brand-rail"><div className="page-width"><Eyebrow>Trusted by</Eyebrow><div className="brand-marquee" aria-label="Trusted brands"><div className="brand-track">{[...brands, ...brands].map((brand, index) => <span key={`${brand}-${index}`}>{brand}</span>)}</div></div></div></section>
 }
 
 function CtaBand() {
@@ -363,12 +353,12 @@ function Lightbox({ item, onClose }) {
 function WorkPage() {
   const [active, setActive] = useState('All work')
   const [selected, setSelected] = useState(null)
-  const filtered = useMemo(() => active === 'All work' ? workItems : workItems.filter(item => item.category === active), [active])
-  return <><PageIntro eyebrow="Selected work" title="Proof in the<br /><em>production.</em>" body="Real event imagery from the current Tbotainment Events gallery — shown here as a more considered portfolio experience." image={media.heroPortrait}><span className="preview-note"><span className="status-dot"></span> Existing project media only</span></PageIntro><section className="section portfolio-section"><div className="page-width"><div className="portfolio-toolbar"><div><Eyebrow>Browse the archive</Eyebrow><p>Click any frame to expand it.</p></div><div className="filter-tabs" role="tablist" aria-label="Portfolio filters">{categories.map(category => <button key={category} className={active === category ? 'active' : ''} onClick={() => setActive(category)}>{category}</button>)}</div></div><div className="portfolio-grid">{filtered.map((item, index) => <button className="portfolio-card" key={item.title} onClick={() => setSelected(item)} aria-label={`Open project image ${index + 1}`}><img src={item.image} alt="" /><span className="portfolio-card-overlay"><span className="view-chip">View <Arrow /></span></span></button>)}</div></div></section><BrandRail /><Lightbox item={selected} onClose={() => setSelected(null)} /></>
+  const filtered = useMemo(() => active === 'All work' ? uniqueWorkItems : uniqueWorkItems.filter(item => item.category === active), [active])
+  return <><PageIntro eyebrow="Selected work" title="Proof in the<br /><em>production.</em>" body="Real event imagery from the current Tbotainment Events gallery — shown here as a more considered portfolio experience." image={media.heroPortrait}></PageIntro><section className="section portfolio-section"><div className="page-width"><div className="portfolio-toolbar"><div><Eyebrow>Browse the archive</Eyebrow><p>Click any frame to expand it.</p></div><div className="filter-tabs" role="tablist" aria-label="Portfolio filters">{categories.map(category => <button key={category} className={active === category ? 'active' : ''} onClick={() => setActive(category)}>{category}</button>)}</div></div><div className="portfolio-grid">{filtered.map((item, index) => <button className="portfolio-card" key={item.title} onClick={() => setSelected(item)} aria-label={`Open project image ${index + 1}`}><img src={item.image} alt="" /><span className="portfolio-card-overlay"><span className="view-chip">View <Arrow /></span></span></button>)}</div></div></section><BrandRail /><Lightbox item={selected} onClose={() => setSelected(null)} /></>
 }
 
 function AboutPage() {
-  return <><PageIntro eyebrow="About Tbotainment" title="A technical mind<br /><em>for the bigger picture.</em>" body="By merging our technical expertise with strategic industry partnerships, we provide solutions that offer our clients the agility of a specialized boutique agency with the massive footprint and 35-year operational backbone of South Africa's most established activation networks." image={media.heroPortrait}><ButtonLink to="/request-a-quote">Meet your production partner</ButtonLink></PageIntro><section className="section about-story"><div className="page-width about-story-grid"><div className="about-story-visual"><img src={media.activation3} alt="Tbotainment Events event environment" /></div><div className="about-story-copy"><Eyebrow>How we work</Eyebrow><h2>Specialist energy.<br /><em>Strategic reach.</em></h2><p>Our point of difference is the connection between technical detail and the bigger event picture. We bring the equipment, crew and planning together early, so the final experience feels effortless to the audience.</p><div className="about-quote"><span>“</span><p>We don’t just supply equipment — we supply the peace of mind that comes with knowing every detail is managed by experts.</p><small>Mission statement</small></div></div></div></section><section className="section section-dark proof-section"><div className="page-width"><SectionHeading eyebrow="Trusted by organizers." title="Backed by results." body="From large-scale technical setups to seamless production management, we bring experience and precision to every event." /><div className="proof-grid"><div><strong><AnimatedCount value={2018} /></strong><span>Established</span><small>Presented as an existing company detail.</small></div><div><strong><AnimatedCount value={130} suffix="+" /></strong><span>Happy clients</span><small>Existing site claim — verify before publication.</small></div><div><strong><AnimatedCount value={4.8} suffix="★" decimals={1} /></strong><span>Google rating</span><small>Existing site claim — verify before publication.</small></div><div><strong>L1</strong><span>BBBEE level</span><small>Existing site claim — verify before publication.</small></div></div></div></section><CtaBand /></>
+  return <><PageIntro eyebrow="About Tbotainment" title="A technical mind<br /><em>for the bigger picture.</em>" body="By merging our technical expertise with strategic industry partnerships, we provide solutions that offer our clients the agility of a specialized boutique agency with the massive footprint and 35-year operational backbone of South Africa's most established activation networks." image={media.heroPortrait}><ButtonLink to="/request-a-quote">Meet your production partner</ButtonLink></PageIntro><section className="section about-story"><div className="page-width about-story-grid"><div className="about-story-visual"><img src={media.activation3} alt="Tbotainment Events event environment" /></div><div className="about-story-copy"><Eyebrow>How we work</Eyebrow><h2>Specialist energy.<br /><em>Strategic reach.</em></h2><p>Our point of difference is the connection between technical detail and the bigger event picture. We bring the equipment, crew and planning together early, so the final experience feels effortless to the audience.</p><div className="about-quote"><span>“</span><p>We don’t just supply equipment — we supply the peace of mind that comes with knowing every detail is managed by experts.</p><small>Mission statement</small></div></div></div></section><section className="section section-dark proof-section"><div className="page-width"><SectionHeading eyebrow="Trusted by organizers." title="Backed by results." body="From large-scale technical setups to seamless production management, we bring experience and precision to every event." /><div className="proof-grid"><div><strong><AnimatedCount value={2018} /></strong><span>Established</span></div><div><strong><AnimatedCount value={130} suffix="+" /></strong><span>Happy clients</span></div><div><strong><AnimatedCount value={4.8} suffix="★" decimals={1} /></strong><span>Google rating</span></div><div><strong>L1</strong><span>BBBEE level</span></div></div></div></section><CtaBand /></>
 }
 
 function QuotePage() {

@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import './styles.css'
+import './styles.css';
 
 const media = {
   hero: '/manus-storage/tbot-maps-hero_d827504b.jpg',

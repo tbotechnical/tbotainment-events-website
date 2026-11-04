@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './styles.css';
 
 const media = {
-  hero: '/manus-storage/tbot-maps-hero_d827504b.jpg',
-  heroMobile: '/manus-storage/tbot-maps-hero_d827504b.jpg',
+  hero: '/hero-bg.jpg.png',
+  heroMobile: '/hero-bg.jpg.png',
   heroPortrait: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001569004_68645175.jpg',
   stage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001569004_68645175.jpg',
   corporate: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663481280200/bXdgADpStumtzZsMqF78Tq/1001287853_compressed_77da4556.jpg',

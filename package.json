@@ -16,4 +16,4 @@
   },
   "devDependencies": {}
 }
-npm i @vercel/analytics
+{npm i @vercel/analytics}
